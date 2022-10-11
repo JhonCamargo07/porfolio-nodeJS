@@ -13,8 +13,8 @@ $shadow: rgba(0, 0, 0, 0.5);
 $bg-title: rgba(255, 255, 255, 0.3);
 $gray: #e9ecef;
 $bg-gray: #f7f7f8;
-$bg-blue: #0d111a;
-$blue: #181529;
+$bg-blue: #0a121d;
+$blue: #0e244c;
 
 $font: 'Montserrat', sans-serif;
 $max-width: 1600px;
@@ -433,9 +433,7 @@ a {
 	}
 	& .habilidades__content {
 		@include grid(2, 0.625rem);
-		// grid-template-rows: auto;
 		margin: 0.9375rem 0.625rem 0.3125rem;
-		// background: $segundo-bg;
 		border-radius: 0.625rem;
 		@include responsive(56.25rem) {
 			grid-template-columns: repeat(1, 1fr);
@@ -579,11 +577,26 @@ a {
 	}
 }
 
+#group__duplicate {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	& > div {
+		width: 49.7%;
+	}
+	@include responsive(40.5rem) {
+		display: block;
+		& > div {
+			width: 100%;
+		}
+	}
+}
 .formulario__textarea {
 	width: 100%;
 	padding: 0.625rem;
 	outline: none;
 	border-radius: 0.3125rem;
+	resize: none;
 	// margin: 0.3125rem 0;
 	border: 0.1875rem solid transparent;
 	body.light & {
@@ -592,7 +605,6 @@ a {
 	&:focus {
 		border: 0.1875rem solid $info;
 		outline: none;
-		box-shadow: 0.1875rem 0rem 1.875rem $shadow;
 	}
 }
 
@@ -681,6 +693,9 @@ a {
 	& .formulario__input {
 		border: 0.1875rem solid $success !important;
 	}
+	& .formulario__input-error {
+		display: none;
+	}
 }
 
 .formulario__grupo-incorrecto {
@@ -693,6 +708,9 @@ a {
 	}
 	& .formulario__label {
 		color: $danger !important;
+	}
+	& .formulario__input-error {
+		display: block !important;
 	}
 }
 
@@ -724,7 +742,7 @@ a {
 footer {
 	width: 100%;
 	margin-top: 1.25rem;
-	font-size: 0.8125rem;
+	font-size: 0.875rem;
 	background: $background;
 	transition: 0.3s all ease;
 	display: flex;
@@ -782,7 +800,6 @@ footer {
 			justify-content: center;
 		}
 		& p {
-			font-size: 0.8125rem !important;
 			margin: 5px 0 0;
 			padding: 0.625rem 0;
 		}
@@ -792,7 +809,7 @@ footer {
 		& .footer__icons {
 			display: flex;
 			justify-content: center;
-			margin-right: 1.875rem;
+			margin-right: 2.5rem;
 			@include responsive() {
 				margin-right: 0rem;
 			}
@@ -806,18 +823,6 @@ footer {
 		}
 	}
 }
-
-// .footer__iconos {
-// 	display: flex;
-// 	justify-content: space-around;
-// }
-
-// .footer__parrafo {
-// 	display: flex;
-// 	justify-content: space-between;
-// 	padding: 0.625rem 1.875rem;
-// 	flex-wrap: wrap;
-// }
 
 .icono {
 	font-size: 1.75rem;

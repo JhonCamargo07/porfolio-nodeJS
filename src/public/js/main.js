@@ -22,8 +22,61 @@
 		});
 	});
 
+	//* =================================================== *//
+	//!=================== Theme ================== !/
+	//* =================================================== *//
+
+	if (!localStorage.getItem('theme')) {
+		localStorage.setItem('theme', 'dark');
+	}
+
+	const btnTheme = document.getElementById('btn-theme');
+
+	const changeTheme = () => {
+		switch (localStorage.getItem('theme')) {
+			case 'dark':
+				document.body.classList.add('light');
+				localStorage.setItem('theme', 'light');
+				break;
+			case 'light':
+				document.body.classList.remove('light');
+				localStorage.setItem('theme', 'dark');
+				break;
+			default:
+				document.body.classList.remove('light');
+				localStorage.setItem('theme', 'dark');
+				console.log('default');
+				break;
+		}
+	};
+
+	const stablicTheme = () => {
+		switch (localStorage.getItem('theme')) {
+			case 'light':
+				document.body.classList.add('light');
+				localStorage.setItem('theme', 'light');
+				break;
+			case 'dark':
+				document.body.classList.remove('light');
+				localStorage.setItem('theme', 'dark');
+				break;
+			default:
+				document.body.classList.remove('light');
+				localStorage.setItem('theme', 'dark');
+				console.log('default');
+				break;
+		}
+	};
+
+	window.onload = () => {
+		stablicTheme();
+	};
+
+	document.getElementById('btn-theme').addEventListener('click', () => {
+		changeTheme();
+	});
+
 	// TODO Unir los inputs de name y email
-	// TODO Modo oscuro/claro
 	// TODO Enviar correo con axios - mostrar respuesta del servidor
 	// TODO cuadrar el color del texto de las paginas (error 404)
 })();

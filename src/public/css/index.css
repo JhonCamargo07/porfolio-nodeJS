@@ -505,8 +505,8 @@ body.light .header {
   border-radius: 10px;
   margin-top: 0.375rem;
   padding-right: 10px;
-  background: #0d111a;
-  border: 1px solid #181529;
+  background: #0a121d;
+  border: 1px solid #0e244c;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -674,11 +674,33 @@ body.light .formulario__input {
           box-shadow: 0.1875rem 0rem 1.875rem rgba(0, 0, 0, 0.5);
 }
 
+#group__duplicate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+#group__duplicate > div {
+  width: 49.7%;
+}
+@media screen and (max-width: 40.5rem) {
+  #group__duplicate {
+    display: block;
+  }
+  #group__duplicate > div {
+    width: 100%;
+  }
+}
+
 .formulario__textarea {
   width: 100%;
   padding: 0.625rem;
   outline: none;
   border-radius: 0.3125rem;
+  resize: none;
   border: 0.1875rem solid transparent;
 }
 body.light .formulario__textarea {
@@ -687,8 +709,6 @@ body.light .formulario__textarea {
 .formulario__textarea:focus {
   border: 0.1875rem solid #2a72c0;
   outline: none;
-  -webkit-box-shadow: 0.1875rem 0rem 1.875rem rgba(0, 0, 0, 0.5);
-          box-shadow: 0.1875rem 0rem 1.875rem rgba(0, 0, 0, 0.5);
 }
 
 .formulario__input-error {
@@ -786,6 +806,9 @@ body.light .formulario__btn {
 .formulario__grupo-correcto .formulario__input {
   border: 0.1875rem solid #00d200 !important;
 }
+.formulario__grupo-correcto .formulario__input-error {
+  display: none;
+}
 
 .formulario__grupo-incorrecto .formulario__input {
   border: 0.1875rem solid #f66060 !important;
@@ -796,6 +819,9 @@ body.light .formulario__btn {
 }
 .formulario__grupo-incorrecto .formulario__label {
   color: #f66060 !important;
+}
+.formulario__grupo-incorrecto .formulario__input-error {
+  display: block !important;
 }
 
 .formulario__grupo-correcto .formulario__textarea {
@@ -816,7 +842,7 @@ body.light .formulario__btn {
 footer {
   width: 100%;
   margin-top: 1.25rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   background: #0d1117;
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
@@ -916,7 +942,6 @@ footer .footer__secondary {
   }
 }
 footer .footer__secondary p {
-  font-size: 0.8125rem !important;
   margin: 5px 0 0;
   padding: 0.625rem 0;
 }
@@ -932,7 +957,7 @@ footer .footer__secondary .footer__icons {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-right: 1.875rem;
+  margin-right: 2.5rem;
 }
 @media screen and (max-width: 480px) {
   footer .footer__secondary .footer__icons {

@@ -1,29 +1,14 @@
-const sendEmail = async (data) => {
-	// await axios.post('https://jhoncamargo.000webhostapp.com/controller/correo.php', data).then((resp) => {
-	// 	console.log(resp);
-	// 	// if (resp.data.success) {
-	// 	// 	setEmailSendSuccessfully(true);
-	// 	// } else {
-	// 	// 	setEmailSendSuccessfully(false);
-	// 	// }
-	// });
-	// return new Promise(function (resolve, reject) {
-	// fetch('https://jhoncamargo.000webhostapp.com/controller/correo.php', data).then((response) => {
-	// 	console.log(response);
-	// });
-	// });
-};
-
 (function () {
 	const formulario = document.getElementById('form');
 	const inputs = document.querySelectorAll('#form input, textarea');
 	const form = document.getElementById('form');
 
 	const expresiones = {
-		name: /^[a-zA-ZÀ-ÿ\s]{7,60}$/, // Letras y espacios, pueden llevar acentos.
-		email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-		motive: /^[a-zA-ZÀ-ÿ0-9_.,+-\s/¿?!:@?]{10,100}$/,
 		message: /^[a-zA-ZÀ-ÿ0-9_.,+-\s/¿?!:@?]{10,1300}$/,
+		name: /^[a-zA-ZÀ-ÿ\s]{7,60}$/,
+		email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+		motive: /^[a-zA-ZÀ-ÿ0-9_.,+-\s/¿?!:@?\uD800-\uDBFF\u2702-\u27B0\uF680-\uF6C0\u24C2-\uF251]{10,100}$/,
+		message: /^[a-zA-ZÀ-ÿ0-9_.,+-\s$%/¿?¡!:@?\uD800-\uDBFF\u2702-\u27B0\uF680-\uF6C0\u24C2-\uF251]{10,1300}$/,
 	};
 
 	const campos = {
@@ -51,7 +36,7 @@ const sendEmail = async (data) => {
 				validarCampo(expresiones.message, e.target, 'message');
 				break;
 			default:
-				console('No case');
+				console.log('No case');
 		}
 	};
 
@@ -83,57 +68,69 @@ const sendEmail = async (data) => {
 		document.querySelector(`#grupo__${nameInput} .formulario__input-error`).classList.add('formulario__input-error-activo');
 	};
 
-	// const inputMsgCorrecto = () => {
-	// 	document.getElementById('grupo__message').classList.remove('formulario__grupo-textarea-incorrecto');
-	// 	document.getElementById('grupo__message').classList.add('formulario__grupo-textarea-correcto');
-	// 	document.querySelector('#grupo__message i').classList.add('fa-check-circle');
-	// 	document.querySelector('#grupo__message i').classList.remove('fa-times-circle');
-	// 	document.querySelector('#grupo__message .formulario__input-error').classList.remove('formulario__input-error-activo');
-	// };
+	const clearInputs = (nameInput) => {
+		document.getElementById(`grupo__${nameInput}`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${nameInput}`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${nameInput} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__${nameInput} i`).classList.remove('fa-check-circle');
+		document
+			.querySelector(`#grupo__${nameInput} .formulario__input-error`)
+			.classList.remove('formulario__input-error-activo');
+		document.getElementById(nameInput).value = '';
+	};
 
-	// const inputMsgIncorrecto = () => {
-	// 	document.getElementById('grupo__message').classList.add('formulario__grupo-textarea-incorrecto');
-	// 	document.getElementById('grupo__message').classList.remove('formulario__grupo-textarea-correcto');
-	// 	document.querySelector('#grupo__message i').classList.add('fa-times-circle');
-	// 	document.querySelector('#grupo__message i').classList.remove('fa-check-circle');
-	// 	document.querySelector('#grupo__message .formulario__input-error').classList.add('formulario__input-error-activo');
-	// };
-
+	// Validar cada input
 	inputs.forEach((input) => {
-		input.addEventListener('keyup', validarFormulario);
 		input.addEventListener('blur', validarFormulario);
 	});
 
-	formulario.addEventListener('submit', (e) => {
+	// Validar formulario al enviarlo
+	formulario.addEventListener('submit', function (e) {
 		e.preventDefault();
-		// console.log(e.target.name.value);
 		if (campos.name && campos.email && campos.motive && campos.message) {
-			// document.getElementById('formulario__message').classList.remove('formulario__mensaje-activo');
-			// document.getElementById('grupo__message').classList.remove('formulario__grupo-textarea-correcto');
-			// document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+			e.target.btnform.value = 'Sending';
 
-			// setTimeout(() => {
-			// 	document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-			// }, 5000);
+			document.getElementById('formulario__mensaje').style.display = 'none';
 
-			// document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-			// 	icono.classList.remove('formulario__grupo-correcto');
-			// });
+			const serviceID = 'default_service';
+			const templateID = 'template_wzkwk2i';
 
-			// campos[nombre] = false;
-			// campos[correo] = false;
-			// campos[asunto] = false;
-			// campos[mensaje] = false;
+			// Enviar correo
+			emailjs.sendForm(serviceID, templateID, this).then(
+				() => {
+					e.target.btnform.value = 'Send email';
 
-			const data = {
-				name: e.target.name.value,
-				email: e.target.email.value,
-				motive: e.target.motive.value,
-				message: e.target.message.value,
-			};
+					// Clear form
+					document.getElementById('messageSuccessful').innerHTML = '&#161;Form successfully submitted!';
+					setTimeout(() => {
+						document.getElementById('messageSuccessful').innerHTML = '';
+					}, 5000);
 
-			console.log('Respuesta: ', sendEmail(data));
+					clearInputs('name');
+					clearInputs('email');
+					clearInputs('motive');
+					clearInputs('message');
+
+					document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+						icono.classList.remove('formulario__grupo-correcto');
+					});
+
+					campos[name] = false;
+					campos[motive] = false;
+					campos[motive] = false;
+					campos[message] = false;
+				},
+				(err) => {
+					// Show error message
+					document.getElementById('messageError').innerHTML = 'A problem has occurred, our site is experiencing errors';
+					setTimeout(() => {
+						document.getElementById('messageError').innerHTML = '';
+					}, 5000);
+					e.target.btnform.value = 'Send email';
+				}
+			);
 		} else {
+			document.getElementById('formulario__mensaje').style.display = 'block';
 			inputs.forEach((input) => {
 				if (input.value == '') {
 					inputIncorrecto(input.name);
