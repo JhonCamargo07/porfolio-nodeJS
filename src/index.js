@@ -1,21 +1,21 @@
-import express from 'express'
-import nodemon from 'nodemon'
-import colors from 'colors'
-import path from 'path'
-import morgan from 'morgan'
-import router from './routes/index.js'
+import express from 'express';
+import nodemon from 'nodemon';
+import colors from 'colors';
+import path from 'path';
+import morgan from 'morgan';
+import router from './routes/index.js';
 import * as url from 'url';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-const app = express()
+const app = express();
 app.set('appName', 'Portfolio Jhon Camargo');
 app.set('port', 64022);
 
 // Settings
-app.use(morgan('dev'))
-app.use(express.json())
-app.use(express.text())
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.text());
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Midelwares
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.use(router)
+app.use(router);
 
 // app.use('/public', express.static('./public'))
 

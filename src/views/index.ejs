@@ -12,6 +12,13 @@
 			</div>
 			<%- include('./sections/skills.ejs') %> <%- include('./sections/contact.ejs') %> <%- include('partials/footer.ejs') %>
 		</div>
+		<script src="static/js/links.js"></script>
+		<script src="static/js/validation.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+		<script type="text/javascript">
+			emailjs.init('3Wv_W3ImddAoMngOL');
+		</script>
 		<%- include('partials/files-js.ejs') %>
 	</body>
 </html>

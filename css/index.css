@@ -116,7 +116,7 @@ body.light .enlace__footer:hover {
 }
 
 .contenedor {
-      grid-template-areas: "header        header          header" "imagen         imagen          imagen" "informacion    informacion     informacion" "lenguajes      lenguajes       lenguajes" "contacto       contacto        contacto" "footer         footer          footer";
+  grid-template-areas: "header        header          header" "imagen         imagen          imagen" "informacion    informacion     informacion" "lenguajes      lenguajes       lenguajes" "contacto       contacto        contacto" "footer         footer          footer";
 }
 
 .header {
@@ -294,9 +294,6 @@ body.light .header {
 }
 
 .parallax {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: imagen;
   position: sticky;
   height: 46.875rem;
@@ -362,9 +359,6 @@ body.light .header {
 }
 
 .informacion {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: informacion;
   margin: 0.625rem auto;
   padding: 0rem 1.875rem 0;
@@ -399,24 +393,19 @@ body.light .header {
 }
 
 .informacion__primer--parrafo {
-  display: -ms-grid;
   display: grid;
   gap: 0.625rem;
-  -ms-grid-columns: 1.5fr 0.625rem 1fr;
   grid-template-columns: 1.5fr 1fr;
-      grid-template-areas: "parrafo  img";
+  grid-template-areas: "parrafo  img";
 }
 @media screen and (max-width: 55.625rem) {
   .informacion__primer--parrafo {
-    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
-        grid-template-areas: "parrafo" "img";
+    grid-template-areas: "parrafo" "img";
   }
 }
 
 .informacion__principal {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
   grid-area: parrafo;
 }
 
@@ -433,8 +422,6 @@ body.light .header {
 }
 
 .informacion__img {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
   grid-area: img;
   width: 100%;
   max-width: 16.875rem;
@@ -449,21 +436,7 @@ body.light .header {
           justify-content: center;
 }
 
-@media screen and (max-width: 55.625rem) {
-  .informacion__principal {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-  .informacion__img {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-  }
-}
-
 .habilidades {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   width: 100%;
   margin: auto;
   grid-area: lenguajes;
@@ -476,9 +449,7 @@ body.light .header {
   }
 }
 .habilidades .habilidades__content {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 0.625rem 1fr;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.625rem;
   margin: 0.9375rem 0.625rem 0.3125rem;
@@ -486,13 +457,11 @@ body.light .header {
 }
 @media screen and (max-width: 480px) {
   .habilidades .habilidades__content {
-    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
 }
 @media screen and (max-width: 56.25rem) {
   .habilidades .habilidades__content {
-    -ms-grid-columns: (1fr)[1];
     grid-template-columns: repeat(1, 1fr);
   }
 }
@@ -603,9 +572,6 @@ body.light .habilidades .habilidades__content .habilidades__div {
 }
 
 .formulario {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: contacto;
   max-width: 1600px;
   width: 90%;
@@ -864,9 +830,6 @@ body.light footer {
           box-shadow: 0rem 0rem 0.3125rem rgba(0, 0, 0, 0.5);
 }
 footer .footer {
-  -ms-grid-row: 6;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   max-width: 1600px;
   grid-area: footer;
   width: 100%;
@@ -1235,4 +1198,4 @@ body.light .error__container .error__link:hover {
 
 .text-danger {
   color: #f66060 !important;
-}
+}/*# sourceMappingURL=index.css.map */

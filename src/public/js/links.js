@@ -1,9 +1,10 @@
 (function () {
 	const enlace_sobre_mi = document.getElementById('btn-about'),
 		enlace_habilidades = document.getElementById('btn-skills'),
-		enlace_contacto = document.getElementById('btn-contact');
+		enlace_contacto = document.getElementById('btn-contact'),
+		linkContactFooter = document.getElementById('linkContactFooter');
 
-	var direccionEnlaces = (nameSection) => {
+	const goToSection = (nameSection) => {
 		const aboutPosition = document.getElementById('information').offsetTop;
 		const skillsPosition = document.getElementById('skills').offsetTop;
 		const formPosition = document.getElementById('form').offsetTop;
@@ -28,12 +29,16 @@
 		});
 	};
 	enlace_sobre_mi.addEventListener('click', () => {
-		direccionEnlaces('aboutme');
+		goToSection('aboutme');
 	});
 	enlace_habilidades.addEventListener('click', () => {
-		direccionEnlaces('skills');
+		goToSection('skills');
 	});
 	enlace_contacto.addEventListener('click', () => {
-		direccionEnlaces('form');
+		goToSection('form');
+	});
+
+	linkContactFooter.addEventListener('click', () => {
+		goToSection('form');
 	});
 })();

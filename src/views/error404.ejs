@@ -1,14 +1,27 @@
-<%- include('./partials/head.ejs') %>
-<body>
-    <%- include('partials/header.ejs') %>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <h1 class="text-center fw-bold">Page no found</h1>
-            </div>
-            <div class="col-md-2"></div>
-        </div>
-    </div>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('./partials/head.ejs') %>
+	<body>
+		<%- include('partials/header-redirect.ejs') %>
+		<main class="error">
+			<div class="error__container">
+				<div class="error__imagen">
+					<img
+						src="/static/img/simpsons-ouh_negro.png"
+						loading="lazy"
+						alt="Simbolo de error 403, homero simpsons"
+						class="error__img" />
+				</div>
+				<div class="error__information">
+					<h1 class="error__title">Sorry, page not found</h1>
+					<p>But don't worry, it's just a 404 error!</p>
+					<p>It is possible that what you are looking for no longer exists or the link is misspelled.</p>
+					<a href="/" class="">
+						<button class="error__link">Back to main page</button>
+					</a>
+				</div>
+			</div>
+		</main>
+		<%- include('partials/footer.ejs') %> <%- include('partials/files-js.ejs') %>
+	</body>
 </html>
