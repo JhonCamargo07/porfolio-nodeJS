@@ -1,0 +1,92 @@
+<div class="formulario margin-bottom mb-4">
+	<h1 class="formulario__titulo informacion__titulo" id="contact">Contact</h1>
+	<!--*=========================== Inicio formulario ===========================-->
+	<form class="formulario__form" name="formulario" id="form">
+		<!-- Grupo name -->
+		<div class="formulario__grupo" id="grupo__name">
+			<label for="name" class="formulario__label px-0">
+				Name
+				<span class="required"> *</span>
+			</label>
+			<div class="formulario__grupo-input">
+				<input type="text" class="formulario__input" id="name" name="name" />
+				<i class="formulario__validacion-estado fas fa-times-circle"></i>
+			</div>
+			<p class="formulario__input-error"></p>
+		</div>
+
+		<!-- Grupo email -->
+		<div class="formulario__grupo" id="grupo__email">
+			<label for="email" class="formulario__label px-0">
+				Email
+				<span class="required"> *</span>
+			</label>
+			<div class="formulario__grupo-input">
+				<input
+					type="text"
+					class="formulario__input"
+					id="email"
+					name="email"
+					title="Escribe un correo electronico valida para poder contactarme contigo" />
+				<i class="formulario__validacion-estado fas fa-times-circle"></i>
+			</div>
+			<p class="formulario__input-error"></p>
+		</div>
+
+		<!-- Grupo motive -->
+		<div class="formulario__grupo" id="grupo__motive">
+			<label for="motive" class="formulario__label px-0">
+				Motive
+				<span class="required"> *</span>
+			</label>
+			<div class="formulario__grupo-input">
+				<input
+					type="text"
+					class="formulario__input"
+					id="motive"
+					name="motive"
+					title="Escribe el titulo o una breve descripción de tu mensaje" />
+				<i class="formulario__validacion-estado fas fa-times-circle"></i>
+			</div>
+			<p class="formulario__input-error"></p>
+		</div>
+
+		<!-- Grupo message -->
+		<div class="formulario__grupo" id="grupo__message">
+			<label for="message" class="formulario__label px-0">
+				Message
+				<span class="required"> *</span>
+			</label>
+			<div class="formulario__grupo-input">
+				<textarea
+					name="message"
+					class="formulario__textarea"
+					id="message"
+					rows="5"
+					title="Describe tu mensaje..."></textarea>
+				<i class="formulario__validacion-estado fas fa-times-circle"></i>
+			</div>
+			<p class="formulario__input-error"></p>
+		</div>
+
+		<div class="formulario__mensaje" id="formulario__mensaje">
+			<p>
+				<i class="fas fa-exclamation-triangle"></i> <b>Error: </b>
+
+				Please fill in the form correctlyss
+			</p>
+		</div>
+
+		<!-- Grupo boton -->
+		<div class="formulario__grupo formulario__grupo-btn-enviar">
+			<button type="submit" name="enviar" class="formulario__btn">Send</button>
+			<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+				<span>
+					<span>\u00a1Form successfully submitted! </span>
+
+					<span class="text-danger"> A problem has occurred, our site is experiencing errors. </span>
+				</span>
+			</p>
+		</div>
+	</form>
+</div>

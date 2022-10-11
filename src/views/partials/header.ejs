@@ -1,31 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-dark py-0 shadow position-fixed w-100">
-	<div class="container">
-		<a class="navbar-brand" href="https://jhoncamargo.000webhostapp.com/"><img src="/static/img/logo_jhon_camargo.png" loading="lazy" width="150px" class="header__logo img-fluid" alt="Logo"></a>
-		<button
-			class="navbar-toggler"
-			type="button"
-			data-bs-toggle="collapse"
-			data-bs-target="#navbarNav"
-			aria-controls="navbarNav"
-			aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ms-auto">
-				<li class="nav-item">
-					<a class="nav-link" aria-current="page" href="/">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/about">About me</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/skills">Skills</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/contact">Contact</a>
-				</li>
-			</ul>
+<div class="container">
+	<header class="header" id="header">
+		<a href="http://jhoncamargo.000webhostapp.com/" class="header__enlace">
+			<img src="/static/img/logo_jhon_camargo.png" loading="lazy" alt="" class="header__logo" />
+		</a>
+		<p id="error__ie"></p>
+		<nav class="header__nav">
+			<span href="" class="header__enlaces" id="btn-about">
+				<i class="icono__nav fas fa-user"></i>
+				About me
+			</span>
+			<span href="" class="header__enlaces" id="btn-skills">
+				<i class="icono__nav fas fa-toolbox"></i>
+				Skills
+			</span>
+			<span href="" class="header__enlaces" id="btn-contact">
+				<i class="icono__nav fas fa-id-badge"></i>
+				Contact
+			</span>
+			<button class="switch header__nav--btn">
+				<img src="/static/img/sun.svg" alt="Light" title="Switch to light mode" />
+				<img src="/static/img/moon.svg" alt="Dark" title="Switch to dark mode" />
+			</button>
+		</nav>
+		<div class="hamburguesa">
+			<i class="icono icono__hamburguesa fas fa-bars" id="hamburguesa"></i>
 		</div>
-	</div>
-</nav>
+	</header>
+</div>
