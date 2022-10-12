@@ -7,31 +7,9 @@ const router = Router();
 
 router.get('/', (req, res) => {
 	res.render('index', {
-		title: 'Home page',
+		title: 'Portfolio Jhon Camargo Dev',
 	});
 });
-
-router.get('/about', (req, res) => {
-	res.render('about-me', {
-		title: 'About me page',
-	});
-});
-
-router.get('/skills', (req, res) => {
-	res.render('skills', {
-		title: 'Skills page',
-	});
-});
-
-router.get('/contact', (req, res) => {
-	res.render('contact', {
-		title: 'Contact page',
-	});
-});
-
-// router.get('/img', (req, res) => {
-//     res.status(200).sendFile('')
-// })
 
 router.use((req, res) => {
 	res.render('error404', {

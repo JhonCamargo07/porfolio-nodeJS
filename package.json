@@ -6,7 +6,8 @@
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon src/index.js"
+		"dev": "nodemon src/index.js",
+		"start": "node src/index.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,10 +17,8 @@
 		"colors": "^1.4.0",
 		"ejs": "^3.1.8",
 		"express": "^4.18.2",
+		"nodemon": "^2.0.20",
 		"morgan": "^1.10.0",
 		"path": "^0.12.7"
-	},
-	"devDependencies": {
-		"nodemon": "^2.0.20"
 	}
 }

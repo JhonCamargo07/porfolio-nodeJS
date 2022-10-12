@@ -10,7 +10,7 @@ const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express();
 app.set('appName', 'Portfolio Jhon Camargo');
-app.set('port', 64022);
+app.set('port', process.env.PORT || 64022);
 
 // Settings
 app.use(morgan('dev'));
