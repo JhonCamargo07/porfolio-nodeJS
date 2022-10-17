@@ -8,7 +8,6 @@
 		if (document.documentElement.scrollTop > 300) {
 			btnGoToUp.classList.remove('icono__none');
 			btnGoToUp.classList.add('icono__flex');
-			// contenedorP.style.marginTop = altura - 35 + "px";
 		} else {
 			btnGoToUp.classList.remove('icono__flex');
 			btnGoToUp.classList.add('icono__none');
@@ -45,7 +44,6 @@
 			default:
 				document.body.classList.remove('light');
 				localStorage.setItem('theme', 'dark');
-				console.log('default');
 				break;
 		}
 	};
@@ -63,7 +61,6 @@
 			default:
 				document.body.classList.remove('light');
 				localStorage.setItem('theme', 'dark');
-				console.log('default');
 				break;
 		}
 	};
